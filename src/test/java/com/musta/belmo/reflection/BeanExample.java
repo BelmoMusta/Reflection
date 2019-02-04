@@ -1,5 +1,7 @@
 package com.musta.belmo.reflection;
 
+import java.util.stream.IntStream;
+
 public class BeanExample {
 
     private String name;
@@ -60,12 +62,21 @@ public class BeanExample {
     }
 
     /**
-     * classe interne commentée
+     * factorial method to be tested
+     *
+     * @param n int
+     * @return int
      */
-    static class AA {
+    private int privateFactorialMethod(int n) {
+        return IntStream.rangeClosed(1, n).reduce(1, (a, b) -> a * b);
     }
-
-    static class BB {
-        // class interne non commentée
+    /**
+     * factorial method to be tested
+     * expected exception {@link NumberFormatException}
+     * @param n int
+     * @return int
+     */
+    private int privateFactorialMethodWithException(String n) {
+        return IntStream.rangeClosed(1, Integer.parseInt(n)).reduce(1, (a, b) -> a * b);
     }
 }

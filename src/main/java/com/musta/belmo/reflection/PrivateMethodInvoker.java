@@ -19,11 +19,6 @@ public class PrivateMethodInvoker {
     private Class<?> aClass;
 
     /**
-     * The returnType field
-     */
-    private Class<?> returnType;
-
-    /**
      * The method field
      */
     private Method method;
@@ -112,13 +107,6 @@ public class PrivateMethodInvoker {
     }
 
     /**
-     * @return Attribut {@link #name}
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
      * @param pName Valeur à affecter à l'attribut {@link #name}
      */
     public void setName(String pName) {
@@ -140,25 +128,11 @@ public class PrivateMethodInvoker {
     }
 
     /**
-     * @return Attribut {@link #callingObject}
-     */
-    public Object getCallingObject() {
-        return callingObject;
-    }
-
-    /**
      * @param pCallingObject Valeur à affecter à l'attribut {@link #callingObject}
      */
     public PrivateMethodInvoker callingObject(Object pCallingObject) {
         callingObject = pCallingObject;
         return this;
-    }
-
-    /**
-     * @return Attribut {@link #args}
-     */
-    public Object[] getArgs() {
-        return args;
     }
 
     /**
@@ -169,23 +143,4 @@ public class PrivateMethodInvoker {
         return this;
     }
 
-    /**
-     * Getter of the field returntype
-     *
-     * @return Class<?>
-     */
-    public Class<?> getReturnType() {
-        return returnType;
-    }
-
-    /**
-     * Setter of the field returntype
-     *
-     * @param returnType { @link Class<T>}
-     * @return PrivateMethodInvoker
-     */
-    public <T> PrivateMethodInvoker setReturnType(Class<T> returnType) {
-        this.returnType = returnType;
-        return this;
-    }
 }
