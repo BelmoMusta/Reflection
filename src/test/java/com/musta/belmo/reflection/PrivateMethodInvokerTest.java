@@ -16,7 +16,7 @@ public class PrivateMethodInvokerTest {
                 .applyOnTypes(int.class)
                 .withParams(10)
                 .invoke();
-        Assert.assertEquals(3628800, invoke);
+         assertEquals(3628800, invoke);
     }
 
     @Test(expected = NumberFormatException.class)

@@ -8,12 +8,6 @@ public class BeanExample {
     private int age;
 
 
-    boolean valid;
-    /**
-     * this field is commented out
-     */
-    private int commentedField;
-
     public BeanExample() {
     }
 
@@ -38,29 +32,6 @@ public class BeanExample {
         this.age = age;
     }
 
-    public boolean isValid() {
-        return valid;
-    }
-
-    public void setValid(boolean valid) {
-        this.valid = valid;
-    }
-
-    /**
-     * cette méthode est commentée,  à ne pas toucher
-     */
-    public void commentedMethod() {
-
-    }
-
-    public void voidMethod() {
-
-    }
-
-    public boolean verifier(String age) {
-        return true;
-    }
-
     /**
      * factorial method to be tested
      *
@@ -70,13 +41,25 @@ public class BeanExample {
     private int privateFactorialMethod(int n) {
         return IntStream.rangeClosed(1, n).reduce(1, (a, b) -> a * b);
     }
+
     /**
      * factorial method to be tested
      * expected exception {@link NumberFormatException}
+     *
      * @param n int
      * @return int
      */
-    private int privateFactorialMethodWithException(String n) {
-        return IntStream.rangeClosed(1, Integer.parseInt(n)).reduce(1, (a, b) -> a * b);
+    private int privateFactorialMethodWithException(String n) { // NOSONAR : unsused
+        return privateFactorialMethod(Integer.parseInt(n));
+    }
+
+    @Override
+    public String toString() {
+        int n = privateFactorialMethodWithException("2");
+        if (n == 2) {
+            return super.toString();
+        }
+        // won't happen 
+        return "BeanExample : {}";
     }
 }

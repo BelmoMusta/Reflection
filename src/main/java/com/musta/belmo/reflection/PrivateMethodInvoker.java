@@ -60,7 +60,7 @@ public class PrivateMethodInvoker {
             method.setAccessible(true);
             return method.invoke(callingObject, args);
         } catch (IllegalArgumentException | IllegalAccessException | InvocationTargetException | SecurityException | NoSuchMethodException e) {
-            throw new RuntimeException(e);
+            throw new IllegalStateException(e);
         }
     }
 
@@ -75,11 +75,9 @@ public class PrivateMethodInvoker {
             method.setAccessible(true);
             return method.invoke(callingObject, args);
         } catch (IllegalArgumentException | IllegalAccessException | SecurityException | NoSuchMethodException ignored) {
-            throw new RuntimeException(ignored);
+            throw new IllegalStateException(ignored);
         } catch (InvocationTargetException e) {
             throw e.getCause();
-        } catch (Exception e) {
-            throw e;
         }
     }
 
