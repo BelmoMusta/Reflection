@@ -59,7 +59,7 @@ public class BeanExample {
         if (n == 2) {
             return super.toString();
         }
-        // won't happen 
+        // won't happen
         return "BeanExample : {}";
     }
 }
